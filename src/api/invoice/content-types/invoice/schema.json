@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoices",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "invoice_id": {
+      "type": "integer"
+    },
+    "date": {
+      "type": "date"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "tax": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "biginteger"
+    },
+    "subTotal": {
+      "type": "integer"
+    },
+    "created": {
+      "type": "date"
+    },
+    "updated": {
+      "type": "date"
+    }
+  }
+}
