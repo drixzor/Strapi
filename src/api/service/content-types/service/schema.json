@@ -25,10 +25,10 @@
       "type": "integer"
     },
     "unitPrice": {
-      "type": "float"  // Changed from biginteger to float
+      "type": "float"
     },
     "totalPrice": {
-      "type": "float"  // Changed from biginteger to float
+      "type": "float"
     }
   }
 }
