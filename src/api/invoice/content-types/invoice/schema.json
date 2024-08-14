@@ -12,40 +12,41 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "accountRef": {
+    "name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "tax": {
+      "type": "integer"
+    },
+    "custom_id": {
+      "type": "string"
+    },
+    "services": {
+      "type": "json"  // Changed to JSON to store an array of service objects
+    },
+    "subTotal": {
+      "type": "float"  // Changed from biginteger to float
+    },
+    "total": {
+      "type": "float"  // Changed from biginteger to float
+    },
+    "account": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::account.account",
       "inversedBy": "invoices"
     },
-    "clientRef": {
+    "client": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::client.client",
       "inversedBy": "invoices"
-    },
-    "custom_id": {
-      "type": "string"
-    },
-    "discount": {
-      "type": "integer"
-    },
-    "name": {
-      "type": "string"
-    },
-    "services": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service.service"
-    },
-    "subTotal": {
-      "type": "biginteger"
-    },
-    "tax": {
-      "type": "integer"
-    },
-    "total": {
-      "type": "biginteger"
     }
   }
 }
