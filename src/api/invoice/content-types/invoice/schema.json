@@ -28,13 +28,13 @@
       "type": "string"
     },
     "services": {
-      "type": "json"  // Changed to JSON to store an array of service objects
+      "type": "json"
     },
     "subTotal": {
-      "type": "float"  // Changed from biginteger to float
+      "type": "float"
     },
     "total": {
-      "type": "float"  // Changed from biginteger to float
+      "type": "float"
     },
     "account": {
       "type": "relation",
