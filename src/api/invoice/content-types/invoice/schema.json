@@ -31,7 +31,7 @@
       "type": "json"
     },
     "subTotal": {
-      "type": "float"
+      "type": "integer"
     },
     "total": {
       "type": "float"
