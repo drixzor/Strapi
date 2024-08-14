@@ -12,29 +12,40 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "invoice_id": {
-      "type": "integer"
+    "accountRef": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "invoices"
     },
-    "date": {
-      "type": "date"
+    "clientRef": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "invoices"
+    },
+    "custom_id": {
+      "type": "string"
     },
     "discount": {
       "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "subTotal": {
+      "type": "biginteger"
     },
     "tax": {
       "type": "integer"
     },
     "total": {
       "type": "biginteger"
-    },
-    "subTotal": {
-      "type": "integer"
-    },
-    "created": {
-      "type": "date"
-    },
-    "updated": {
-      "type": "date"
     }
   }
 }

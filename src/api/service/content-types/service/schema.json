@@ -12,23 +12,23 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "custom_id": {
       "type": "string"
     },
-    "unitPrice": {
+    "discount": {
       "type": "integer"
     },
     "quantity": {
       "type": "integer"
     },
-    "discount": {
-      "type": "integer"
+    "title": {
+      "type": "string"
     },
     "totalPrice": {
-      "type": "integer"
+      "type": "biginteger"
     },
-    "invoiceId": {
-      "type": "integer"
+    "unitPrice": {
+      "type": "biginteger"
     }
   }
 }

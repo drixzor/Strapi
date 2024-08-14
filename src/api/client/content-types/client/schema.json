@@ -12,32 +12,38 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "client_id": {
-      "type": "integer"
-    },
-    "name": {
-      "type": "string"
-    },
-    "owner_name": {
-      "type": "string"
-    },
-    "owner_email": {
-      "type": "email"
-    },
     "address": {
+      "type": "string"
+    },
+    "company_name": {
       "type": "string"
     },
     "country": {
       "type": "string"
     },
+    "name": {
+      "type": "string"
+    },
+    "owner_email": {
+      "type": "email"
+    },
+    "owner_name": {
+      "type": "string"
+    },
     "phone": {
       "type": "biginteger"
     },
-    "created": {
-      "type": "date"
+    "invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "clientRef"
     },
-    "updated": {
-      "type": "date"
+    "Account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "clients"
     }
   }
 }

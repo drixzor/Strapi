@@ -12,40 +12,35 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "company_name": {
-      "type": "string"
-    },
-    "owner_name": {
-      "type": "string"
-    },
     "address": {
+      "type": "string"
+    },
+    "company_name": {
       "type": "string"
     },
     "country": {
       "type": "string"
     },
-    "phone": {
-      "type": "biginteger"
-    },
-    "created": {
-      "type": "date"
-    },
-    "updated": {
-      "type": "date"
-    },
     "owner_email": {
       "type": "email"
     },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "owner_name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "accountRef"
+    },
+    "clients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::client.client",
+      "mappedBy": "Account"
     }
   }
 }

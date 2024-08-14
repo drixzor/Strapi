@@ -800,15 +800,22 @@ export interface ApiAccountAccount extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    company_name: Attribute.String;
-    owner_name: Attribute.String;
     address: Attribute.String;
+    company_name: Attribute.String;
     country: Attribute.String;
-    phone: Attribute.BigInteger;
-    created: Attribute.Date;
-    updated: Attribute.Date;
     owner_email: Attribute.Email;
-    logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    owner_name: Attribute.String;
+    phone: Attribute.BigInteger;
+    invoices: Attribute.Relation<
+      'api::account.account',
+      'oneToMany',
+      'api::invoice.invoice'
+    >;
+    clients: Attribute.Relation<
+      'api::account.account',
+      'oneToMany',
+      'api::client.client'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -839,15 +846,23 @@ export interface ApiClientClient extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    client_id: Attribute.Integer;
-    name: Attribute.String;
-    owner_name: Attribute.String;
-    owner_email: Attribute.Email;
     address: Attribute.String;
+    company_name: Attribute.String;
     country: Attribute.String;
+    name: Attribute.String;
+    owner_email: Attribute.Email;
+    owner_name: Attribute.String;
     phone: Attribute.BigInteger;
-    created: Attribute.Date;
-    updated: Attribute.Date;
+    invoices: Attribute.Relation<
+      'api::client.client',
+      'oneToMany',
+      'api::invoice.invoice'
+    >;
+    Account: Attribute.Relation<
+      'api::client.client',
+      'manyToOne',
+      'api::account.account'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -878,14 +893,27 @@ export interface ApiInvoiceInvoice extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    invoice_id: Attribute.Integer;
-    date: Attribute.Date;
+    accountRef: Attribute.Relation<
+      'api::invoice.invoice',
+      'manyToOne',
+      'api::account.account'
+    >;
+    clientRef: Attribute.Relation<
+      'api::invoice.invoice',
+      'manyToOne',
+      'api::client.client'
+    >;
+    custom_id: Attribute.String;
     discount: Attribute.Integer;
+    name: Attribute.String;
+    services: Attribute.Relation<
+      'api::invoice.invoice',
+      'oneToMany',
+      'api::service.service'
+    >;
+    subTotal: Attribute.BigInteger;
     tax: Attribute.Integer;
     total: Attribute.BigInteger;
-    subTotal: Attribute.Integer;
-    created: Attribute.Date;
-    updated: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -916,12 +944,12 @@ export interface ApiServiceService extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    unitPrice: Attribute.Integer;
-    quantity: Attribute.Integer;
+    custom_id: Attribute.String;
     discount: Attribute.Integer;
-    totalPrice: Attribute.Integer;
-    invoiceId: Attribute.Integer;
+    quantity: Attribute.Integer;
+    title: Attribute.String;
+    totalPrice: Attribute.BigInteger;
+    unitPrice: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
