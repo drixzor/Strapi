@@ -4,7 +4,7 @@
   "info": {
     "singularName": "client",
     "pluralName": "clients",
-    "displayName": "clients",
+    "displayName": "Clients",
     "description": ""
   },
   "options": {
@@ -12,38 +12,35 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "address": {
-      "type": "string"
-    },
-    "company_name": {
-      "type": "string"
-    },
-    "country": {
-      "type": "string"
-    },
     "name": {
+      "type": "string"
+    },
+    "owner_name": {
       "type": "string"
     },
     "owner_email": {
       "type": "email"
     },
-    "owner_name": {
+    "country": {
+      "type": "string"
+    },
+    "address": {
       "type": "string"
     },
     "phone": {
-      "type": "biginteger"
+      "type": "string"  // Changed from biginteger to string
+    },
+    "account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "clients"  // Ensure this matches the schema in accounts
     },
     "invoices": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::invoice.invoice",
-      "mappedBy": "clientRef"
-    },
-    "Account": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::account.account",
-      "inversedBy": "clients"
+      "mappedBy": "client"  // Assuming invoices have a "client" field mapping back
     }
   }
 }
