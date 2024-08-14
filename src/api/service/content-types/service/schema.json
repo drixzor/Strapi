@@ -12,6 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "custom_id": {
       "type": "string"
     },
@@ -21,14 +24,11 @@
     "quantity": {
       "type": "integer"
     },
-    "title": {
-      "type": "string"
+    "unitPrice": {
+      "type": "float"  // Changed from biginteger to float
     },
     "totalPrice": {
-      "type": "biginteger"
-    },
-    "unitPrice": {
-      "type": "biginteger"
+      "type": "float"  // Changed from biginteger to float
     }
   }
 }
