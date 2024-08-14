@@ -28,19 +28,19 @@
       "type": "string"
     },
     "phone": {
-      "type": "string"  // Changed from biginteger to string
+      "type": "string"
     },
     "account": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::account.account",
-      "inversedBy": "clients"  // Ensure this matches the schema in accounts
+      "inversedBy": "clients"
     },
     "invoices": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::invoice.invoice",
-      "mappedBy": "client"  // Assuming invoices have a "client" field mapping back
+      "mappedBy": "clientRef"
     }
   }
 }
