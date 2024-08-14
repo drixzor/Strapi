@@ -10,37 +10,41 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
   "attributes": {
-    "address": {
-      "type": "string"
-    },
     "company_name": {
       "type": "string"
     },
-    "country": {
+    "owner_name": {
       "type": "string"
     },
     "owner_email": {
       "type": "email"
     },
-    "owner_name": {
+    "country": {
+      "type": "string"
+    },
+    "address": {
       "type": "string"
     },
     "phone": {
-      "type": "biginteger"
+      "type": "string"  // Updated from biginteger to string
+    },
+    "logo": {
+      "type": "media",  // Assumes this is a media field allowing images
+      "multiple": false,
+      "allowedTypes": ["images"]
     },
     "invoices": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::invoice.invoice",
-      "mappedBy": "accountRef"
+      "mappedBy": "account"
     },
     "clients": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::client.client",
-      "mappedBy": "Account"
+      "mappedBy": "account"
     }
   }
 }
