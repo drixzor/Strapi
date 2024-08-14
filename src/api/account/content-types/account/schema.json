@@ -27,10 +27,10 @@
       "type": "string"
     },
     "phone": {
-      "type": "string"  // Updated from biginteger to string
+      "type": "string"
     },
     "logo": {
-      "type": "media",  // Assumes this is a media field allowing images
+      "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
     },
