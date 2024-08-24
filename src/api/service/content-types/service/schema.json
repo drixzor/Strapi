@@ -15,6 +15,9 @@
     "title": {
       "type": "string"
     },
+    "description": {
+      "type": "string"
+    },
     "custom_id": {
       "type": "string"
     },
