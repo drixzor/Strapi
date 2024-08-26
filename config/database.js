@@ -6,15 +6,15 @@ module.exports = ({ env }) => {
   const connections = {
     postgres: {
       connection: {
-        connectionString: env('DATABASE_URL'), // Use the connection string from Supabase with pooler details
+        connectionString: env('DATABASE_URL'),
         ssl: {
-          rejectUnauthorized: false, // Keep SSL set to false
+          rejectUnauthorized: false, // SSL is required but without strict validation
         },
         schema: env('DATABASE_SCHEMA', 'public'),
       },
       pool: {
-        min: env.int('DATABASE_POOL_MIN', 2), // Start small with the pool
-        max: env.int('DATABASE_POOL_MAX', 10), // Adjust based on your needs
+        min: env.int('DATABASE_POOL_MIN', 2),
+        max: env.int('DATABASE_POOL_MAX', 10),
       },
     },
     sqlite: {
