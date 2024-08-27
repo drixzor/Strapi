@@ -7,9 +7,7 @@ module.exports = ({ env }) => {
     postgres: {
       connection: {
         connectionString: env('DATABASE_URL'),
-        ssl: {
-          rejectUnauthorized: false, // SSL is required but without strict validation
-        },
+        ssl: false, // Disable SSL since SSL is not enforced on the database
         schema: env('DATABASE_SCHEMA', 'public'),
       },
       pool: {
