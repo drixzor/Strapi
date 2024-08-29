@@ -8,8 +8,13 @@ module.exports = ({ env }) => ({
       user: env('DATABASE_USERNAME'),
       password: env('DATABASE_PASSWORD'),
       ssl: {
-        rejectUnauthorized: env.bool('DATABASE_SSL', false), // Adjust based on whether SSL is required
+        rejectUnauthorized: env.bool('DATABASE_SSL', false),
       },
+      acquireConnectionTimeout: 10000, // Increase timeout
+    },
+    pool: {
+      min: 2,
+      max: 10, // Adjust based on your RDS instance capacity
     },
     debug: false,
   },
