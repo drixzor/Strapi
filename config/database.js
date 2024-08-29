@@ -8,7 +8,7 @@ module.exports = ({ env }) => ({
       user: env('DATABASE_USERNAME'),
       password: env('DATABASE_PASSWORD'),
       ssl: {
-        rejectUnauthorized: env.bool('DATABASE_SSL', false),
+        rejectUnauthorized: false,
       },
       acquireConnectionTimeout: 10000, // Increase timeout
     },
